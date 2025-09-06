@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: otc-signal-bot
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
+    envVars:
+      - key: TELEGRAM_BOT_TOKEN
+        sync: false
+      - key: TELEGRAM_CHAT_ID
+        sync: false
+      - key: DATA_CSV_URL
+        sync: false
+      - key: PAIR_NAME
+        value: "USD/BRL_OTC"
+      - key: THRESHOLD
+        value: "0.6"
+      - key: MIN_ROWS
+        value: "500"
+        
